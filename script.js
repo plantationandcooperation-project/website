@@ -53,14 +53,16 @@ pledgeBtn.addEventListener("click", () => {
   window.open(`https://wa.me/?text=${message}`, "_blank");
 });
 
-const journey = document.querySelector(".animate-on-scroll");
+
+// Start animation on scroll
+const journey = document.getElementById("journey");
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      journey.classList.add("start");
+      journey.style.animationPlayState = "running";
     }
   });
-}, { threshold: 0.4 });
+}, { threshold: 0.3 });
 
 observer.observe(journey);
