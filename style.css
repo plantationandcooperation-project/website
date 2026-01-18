@@ -33,3 +33,49 @@ h1, h2 {
 html {
   scroll-behavior: smooth;
 }
+/* ===== Improved Header (Hero Feel) ===== */
+header {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ===== Card Layout for Sections ===== */
+section {
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* ===== Headings inside cards ===== */
+.section-card h2 {
+  color: #1b5e20;
+  margin-bottom: 12px;
+}
+
+/* ===== Mobile Friendly ===== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+}
