@@ -261,59 +261,48 @@ section {
   line-height: 1.5;
 }
 
-/* ===== Plastic Journey Section ===== */
+
+/* ===== Plastic Journey Circle ===== */
 .plastic-journey-section {
+  background: #0f4d1e;
   padding: 80px 20px;
-  background: #0f4d1d;
   text-align: center;
+  color: #fff;
 }
 
-.journey-title {
-  color: #c9f7d4;
+.plastic-journey-section h2 {
+  font-size: 28px;
   margin-bottom: 40px;
 }
 
-.journey-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 /* Circle */
-.journey-circle {
+.journey-wrapper {
   position: relative;
   width: 320px;
   height: 320px;
+  margin: auto;
+  border: 2px dashed rgba(255,255,255,0.5);
   border-radius: 50%;
-  animation: rotateCircle 30s linear infinite;
+  animation: rotateCircle 40s linear infinite;
   animation-play-state: paused;
 }
 
-/* Dotted flow line */
-.journey-circle::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px dashed rgba(255,255,255,0.5);
-}
-
-/* Start on scroll */
-.journey-circle.start {
-  animation-play-state: running;
-}
-
 /* Center text */
-.center-text {
+.journey-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-weight: bold;
+  width: 160px;
+  height: 160px;
+  background: #1b7a3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
-  text-align: center;
-  pointer-events: none;
-  animation: counterRotate 30s linear infinite;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0,255,100,0.6);
 }
 
 /* Steps */
@@ -321,44 +310,37 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform-origin: center -140px;
-  font-size: 20px;
-  color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.journey-step span {
-  display: block;
-  font-size: 11px;
+  transform-origin: 0 0;
+  background: rgba(255,255,255,0.12);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: 0.3s;
 }
 
 /* Hover glow */
 .journey-step:hover {
-  transform: scale(1.2) rotate(var(--angle));
-  box-shadow: 0 0 15px rgba(0,255,120,0.9);
-  border-radius: 50%;
+  background: #2ecc71;
+  color: #000;
+  box-shadow: 0 0 12px #2ecc71;
 }
 
-/* Positioning steps */
-.step1  { transform: rotate(0deg) translateY(-140px); }
-.step2  { transform: rotate(32deg) translateY(-140px); }
-.step3  { transform: rotate(64deg) translateY(-140px); }
-.step4  { transform: rotate(96deg) translateY(-140px); }
-.step5  { transform: rotate(128deg) translateY(-140px); }
-.step6  { transform: rotate(160deg) translateY(-140px); }
-.step7  { transform: rotate(192deg) translateY(-140px); }
-.step8  { transform: rotate(224deg) translateY(-140px); }
-.step9  { transform: rotate(256deg) translateY(-140px); }
-.step10 { transform: rotate(288deg) translateY(-140px); }
-.step11 { transform: rotate(320deg) translateY(-140px); }
+/* Positioning around circle */
+.s1  { transform: rotate(0deg)   translate(140px) rotate(0deg); }
+.s2  { transform: rotate(32deg)  translate(140px) rotate(-32deg); }
+.s3  { transform: rotate(64deg)  translate(140px) rotate(-64deg); }
+.s4  { transform: rotate(96deg)  translate(140px) rotate(-96deg); }
+.s5  { transform: rotate(128deg) translate(140px) rotate(-128deg); }
+.s6  { transform: rotate(160deg) translate(140px) rotate(-160deg); }
+.s7  { transform: rotate(192deg) translate(140px) rotate(-192deg); }
+.s8  { transform: rotate(224deg) translate(140px) rotate(-224deg); }
+.s9  { transform: rotate(256deg) translate(140px) rotate(-256deg); }
+.s10 { transform: rotate(288deg) translate(140px) rotate(-288deg); }
+.s11 { transform: rotate(320deg) translate(140px) rotate(-320deg); }
 
-/* Animations */
+/* Rotation */
 @keyframes rotateCircle {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
-}
-
-@keyframes counterRotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(-360deg); }
 }
