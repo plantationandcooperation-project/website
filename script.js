@@ -66,3 +66,74 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 observer.observe(journey);
+
+const revealSection = document.querySelector('.reveal-section');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelector('.reveal-container').classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+observer.observe(revealSection);
+
+const co2Counter = document.querySelector('.counter-number');
+let started = false;
+
+const animateCounter = () => {
+  if (started) return;
+  started = true;
+  
+  let count = 0;
+  const target = +co2Counter.dataset.target;
+  const duration = 3000; // ms
+  const step = target / (duration / 16);
+
+  const update = () => {
+    count += step;
+    if (count < target) {
+      co2Counter.textContent = Math.floor(count).toLocaleString();
+      requestAnimationFrame(update);
+    } else {
+      co2Counter.textContent = target.toLocaleString();
+    }
+  };
+  update();
+};
+
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCounter();
+    observer.disconnect();
+  }
+}, { threshold: 0.5 });
+
+observer.observe(document.querySelector('.earth-pulse'));
+
+
+const plantBtn = document.querySelector('.plant-btn');
+const message = document.querySelector('.planted-message');
+
+plantBtn.addEventListener('click', () => {
+  // Show message
+  message.classList.remove('hidden');
+  message.classList.add('visible');
+  
+  // Create falling leaves
+  for (let i = 0; i < 20; i++) {
+    const leaf = document.createElement('div');
+    leaf.classList.add('falling-leaf');
+    leaf.style.left = Math.random() * 100 + '%';
+    leaf.style.animationDelay = Math.random() * 1 + 's';
+    leaf.style.background = `hsl(${Math.random() * 60 + 90}, 70%, 50%)`; // green variations
+    document.body.appendChild(leaf);
+    
+    setTimeout(() => leaf.remove(), 4000);
+  }
+  
+  // Optional: disable after one click or reset
+  // plantBtn.disabled = true;
+});
