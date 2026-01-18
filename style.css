@@ -183,3 +183,39 @@ section {
     opacity: 0.8;
   }
 }
+
+/* ===== Pledge Section ===== */
+.pledge-card {
+  text-align: center;
+}
+
+.pledge-text {
+  margin: 15px 0 20px;
+  font-size: 1rem;
+}
+
+.pledge-btn {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pledge-btn:hover {
+  transform: scale(1.05);
+}
+
+.pledge-btn.taken {
+  background: #2e7d32;
+  cursor: default;
+}
+
+.pledge-count {
+  margin-top: 18px;
+  font-weight: 600;
+  color: #2e7d32;
+}
