@@ -327,17 +327,17 @@ section {
 }
 
 /* Positioning around circle */
-.s1  { transform: rotate(0deg)   translate(140px) rotate(0deg); }
-.s2  { transform: rotate(32deg)  translate(140px) rotate(-32deg); }
-.s3  { transform: rotate(64deg)  translate(140px) rotate(-64deg); }
-.s4  { transform: rotate(96deg)  translate(140px) rotate(-96deg); }
-.s5  { transform: rotate(128deg) translate(140px) rotate(-128deg); }
-.s6  { transform: rotate(160deg) translate(140px) rotate(-160deg); }
-.s7  { transform: rotate(192deg) translate(140px) rotate(-192deg); }
-.s8  { transform: rotate(224deg) translate(140px) rotate(-224deg); }
-.s9  { transform: rotate(256deg) translate(140px) rotate(-256deg); }
-.s10 { transform: rotate(288deg) translate(140px) rotate(-288deg); }
-.s11 { transform: rotate(320deg) translate(140px) rotate(-320deg); }
+.s1  { transform: rotate(0deg)   translate(150px) rotate(0deg); }
+.s2  { transform: rotate(32deg)  translate(150px) rotate(-32deg); }
+.s3  { transform: rotate(64deg)  translate(150px) rotate(-64deg); }
+.s4  { transform: rotate(96deg)  translate(150px) rotate(-96deg); }
+.s5  { transform: rotate(128deg) translate(150px) rotate(-128deg); }
+.s6  { transform: rotate(160deg) translate(150px) rotate(-160deg); }
+.s7  { transform: rotate(192deg) translate(150px) rotate(-192deg); }
+.s8  { transform: rotate(224deg) translate(150px) rotate(-224deg); }
+.s9  { transform: rotate(256deg) translate(150px) rotate(-256deg); }
+.s10 { transform: rotate(288deg) translate(150px) rotate(-288deg); }
+.s11 { transform: rotate(320deg) translate(150px) rotate(-320deg); }
 
 /* Rotation */
 @keyframes rotateCircle {
