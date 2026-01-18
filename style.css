@@ -344,3 +344,17 @@ section {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+/* ===== FIX DESKTOP CENTER ALIGNMENT ===== */
+
+.plastic-journey-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* horizontally center */
+  align-items: center;       /* vertically center */
+  flex-direction: column;
+}
+
+.plastic-circle {
+  position: relative;
+  margin: 0 auto;            /* 🔥 MAIN FIX */
+}
