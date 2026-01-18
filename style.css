@@ -88,3 +88,14 @@ section {
     font-size: 1rem;
   }
 }
+/* ===== Goals List Style ===== */
+.goals-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.goals-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #2e7d32;
+}
