@@ -49,17 +49,15 @@ header {
 
 
 header h1 {
-  font-size: 3rem;
-  margin-bottom: 14px;
-  color: #ffffff;
+  font-size: 2.8rem;
   font-weight: 700;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.35);
 }
 
-
 header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  opacity: 0.95;
 }
 
 /* ===== Card Layout for Sections ===== */
