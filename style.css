@@ -40,11 +40,12 @@ header {
       rgba(129, 199, 132, 0.9),
       rgba(129, 199, 132, 0.9)
     ),
-    linear-gradient(135deg, #a5d6a, #e8f5e9);
+    linear-gradient(135deg, #66bb6a, #a5d6a7);
 
   color: white;
   text-align: center;
   padding: 100px 20px;
+}
 }
 header h1 {
   font-size: 3rem;
