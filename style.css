@@ -260,3 +260,105 @@ section {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+/* ===== Plastic Journey Section ===== */
+.plastic-journey-section {
+  padding: 80px 20px;
+  background: #0f4d1d;
+  text-align: center;
+}
+
+.journey-title {
+  color: #c9f7d4;
+  margin-bottom: 40px;
+}
+
+.journey-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Circle */
+.journey-circle {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  animation: rotateCircle 30s linear infinite;
+  animation-play-state: paused;
+}
+
+/* Dotted flow line */
+.journey-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.5);
+}
+
+/* Start on scroll */
+.journey-circle.start {
+  animation-play-state: running;
+}
+
+/* Center text */
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  animation: counterRotate 30s linear infinite;
+}
+
+/* Steps */
+.journey-step {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -140px;
+  font-size: 20px;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.journey-step span {
+  display: block;
+  font-size: 11px;
+}
+
+/* Hover glow */
+.journey-step:hover {
+  transform: scale(1.2) rotate(var(--angle));
+  box-shadow: 0 0 15px rgba(0,255,120,0.9);
+  border-radius: 50%;
+}
+
+/* Positioning steps */
+.step1  { transform: rotate(0deg) translateY(-140px); }
+.step2  { transform: rotate(32deg) translateY(-140px); }
+.step3  { transform: rotate(64deg) translateY(-140px); }
+.step4  { transform: rotate(96deg) translateY(-140px); }
+.step5  { transform: rotate(128deg) translateY(-140px); }
+.step6  { transform: rotate(160deg) translateY(-140px); }
+.step7  { transform: rotate(192deg) translateY(-140px); }
+.step8  { transform: rotate(224deg) translateY(-140px); }
+.step9  { transform: rotate(256deg) translateY(-140px); }
+.step10 { transform: rotate(288deg) translateY(-140px); }
+.step11 { transform: rotate(320deg) translateY(-140px); }
+
+/* Animations */
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes counterRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(-360deg); }
+}
