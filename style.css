@@ -99,3 +99,38 @@ section {
   line-height: 1.6;
   color: #2e7d32;
 }
+
+/* ===== Global Spacing Polish ===== */
+
+/* Header নিচে সুন্দর gap */
+header {
+  margin-bottom: 50px;
+}
+
+/* Section spacing */
+section {
+  padding: 20px;
+}
+
+/* Card spacing & comfort */
+.section-card {
+  margin: 0 auto 40px auto;
+}
+
+/* Text spacing inside cards */
+.section-card p,
+.section-card li {
+  margin-top: 10px;
+}
+
+/* Mobile extra comfort */
+@media (max-width: 600px) {
+  header {
+    padding: 70px 16px;
+  }
+
+  .section-card {
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+}
