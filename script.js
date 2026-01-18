@@ -17,3 +17,38 @@ function createLeaf() {
 }
 
 setInterval(createLeaf, 400);
+
+let pledgeBtn = document.getElementById("pledgeBtn");
+let pledgeCountText = document.getElementById("pledgeCount");
+
+let pledgeCount = localStorage.getItem("pledgeCount")
+  ? parseInt(localStorage.getItem("pledgeCount"))
+  : 671;
+
+let pledged = localStorage.getItem("pledged");
+
+pledgeCountText.innerHTML = `🌳 ${pledgeCount} people have pledged`;
+
+if (pledged) {
+  pledgeBtn.classList.add("taken");
+  pledgeBtn.innerHTML = "✅ Pledge Taken";
+}
+
+pledgeBtn.addEventListener("click", () => {
+  if (pledged) return;
+
+  pledgeCount++;
+  localStorage.setItem("pledgeCount", pledgeCount);
+  localStorage.setItem("pledged", true);
+
+  pledgeBtn.classList.add("taken");
+  pledgeBtn.innerHTML = "✅ Pledge Taken";
+  pledgeCountText.innerHTML = `🌳 ${pledgeCount} people have pledged`;
+
+  // WhatsApp message
+  let message = encodeURIComponent(
+    "🌱 I have taken the Green Pledge! I promise to reduce plastic use, plant trees, and protect our environment. Join me!"
+  );
+
+  window.open(`https://wa.me/?text=${message}`, "_blank");
+});
