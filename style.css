@@ -34,19 +34,20 @@ html {
   scroll-behavior: smooth;
 }
 /* ===== Improved Header (Hero Feel) ===== */
-header {
-  background:
-    linear-gradient(
-      rgba(129, 199, 132, 0.9),
-      rgba(129, 199, 132, 0.9)
-    ),
-    linear-gradient(135deg, #66bb6a, #a5d6a7);
 
-  color: white;
+header {
+  background: linear-gradient(
+    135deg,
+    #43a047,   /* fresh green */
+    #81c784    /* soft green */
+  );
+
+  color: #ffffff;
   text-align: center;
-  padding: 100px 20px;
+  padding: 90px 20px;
 }
-}
+
+
 header h1 {
   font-size: 3rem;
   margin-bottom: 14px;
