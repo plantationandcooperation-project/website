@@ -37,10 +37,10 @@ html {
 header {
   background:
     linear-gradient(
-      rgba(27, 94, 32, 0.9),
-      rgba(27, 94, 32, 0.9)
+      rgba(129, 199, 132, 0.9),
+      rgba(129, 199, 132, 0.9)
     ),
-    linear-gradient(135deg, #1b5e20, #2e7d32);
+    linear-gradient(135deg, #a5d6a, #e8f5e9);
 
   color: white;
   text-align: center;
