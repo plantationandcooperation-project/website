@@ -245,7 +245,29 @@
   </div>
 </section>
 
-  
+  <section class="quiz-section">
+  <h2>Plastic Awareness Quiz</h2>
+
+  <div id="quiz-box">
+    <div id="timer">⏱ Time: <span id="time">6</span>s</div>
+
+    <h3 id="question">Question here</h3>
+
+    <div class="options">
+      <button class="option" onclick="checkAnswer(0)"></button>
+      <button class="option" onclick="checkAnswer(1)"></button>
+      <button class="option" onclick="checkAnswer(2)"></button>
+      <button class="option" onclick="checkAnswer(3)"></button>
+    </div>
+  </div>
+
+  <div id="result-box" style="display:none;">
+    <h2>Your Score: <span id="score"></span>/10</h2>
+    <a id="whatsappShare" target="_blank">
+      <button class="share-btn">📲 Share on WhatsApp</button>
+    </a>
+  </div>
+</section>
 <!-- JS FILE LINK (VERY IMPORTANT) -->
   <script src="script.js"></script>
 </body>
