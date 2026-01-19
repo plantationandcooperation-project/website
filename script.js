@@ -109,111 +109,104 @@ observer.observe(document.querySelector('.earth-pulse'));
 
 const quiz = [
   {
-    q: "What is the main cause of plastic pollution?",
-    options: ["Recycling", "Single-use plastics", "Paper waste", "Glass"],
-    answer: 1
-  },
-  {
-    q: "Which animal is most affected by plastic waste?",
-    options: ["Lions", "Sea animals", "Cows", "Birds"],
-    answer: 1
+    q: "Which plastic item is most commonly found in oceans?",
+    options: ["Plastic bottles", "Glass jars", "Paper bags", "Metal cans"],
+    answer: 0
   },
   {
     q: "How long does plastic take to decompose?",
-    options: ["10 years", "50 years", "100 years", "Hundreds of years"],
+    options: ["10 years", "50 years", "100 years", "500+ years"],
     answer: 3
   },
   {
-    q: "What should we use instead of plastic bags?",
-    options: ["Cloth bags", "Plastic bottles", "Paper cups", "Foil"],
-    answer: 0
-  },
-  {
-    q: "Microplastics affect?",
-    options: ["Only oceans", "Only animals", "Human health", "Nothing"],
+    q: "What happens when animals eat plastic?",
+    options: ["They digest it", "They become stronger", "They may die", "Nothing happens"],
     answer: 2
   },
   {
-    q: "Which plastic is most dangerous?",
-    options: ["Single-use plastic", "Reusable plastic", "Metal", "Glass"],
-    answer: 0
-  },
-  {
-    q: "Plastic waste mostly ends up in?",
-    options: ["Mountains", "Oceans", "Forests", "Deserts"],
+    q: "Which is a safer alternative to plastic bags?",
+    options: ["Polythene", "Cloth bag", "Plastic cover", "Foil"],
     answer: 1
   },
   {
-    q: "Best way to reduce plastic pollution?",
-    options: ["Burning plastic", "Using more plastic", "Reduce & reuse", "Throwing away"],
+    q: "What are microplastics?",
+    options: ["Big plastic items", "Plastic toys", "Tiny plastic particles", "Metal waste"],
     answer: 2
   },
   {
-    q: "Plastic harms environment by?",
-    options: ["Improving soil", "Killing wildlife", "Cleaning water", "Growing trees"],
+    q: "Plastic pollution mainly affects?",
+    options: ["Only humans", "Only animals", "Environment & health", "Only cities"],
+    answer: 2
+  },
+  {
+    q: "Which practice reduces plastic waste?",
+    options: ["Burning plastic", "Throwing in rivers", "Reusing items", "Burying plastic"],
+    answer: 2
+  },
+  {
+    q: "Plastic burning causes?",
+    options: ["Clean air", "Toxic gases", "More oxygen", "Rain"],
     answer: 1
   },
   {
-    q: "Plastic-free future means?",
-    options: ["Cleaner planet", "More waste", "More pollution", "No trees"],
+    q: "Which sector uses most plastic?",
+    options: ["Packaging", "Farming", "Education", "Forests"],
     answer: 0
+  },
+  {
+    q: "Best way to fight plastic pollution?",
+    options: ["Ignore it", "Use more plastic", "Reduce, Reuse, Recycle", "Dump in landfills"],
+    answer: 2
   }
 ];
 
 let current = 0;
 let score = 0;
 let time = 6;
-let timer;
-
-const questionEl = document.getElementById("question");
-const optionsEl = document.querySelectorAll(".option");
-const timeEl = document.getElementById("time");
+let timerInterval;
 
 function loadQuestion() {
-  if (current >= quiz.length) {
-    showResult();
-    return;
+  clearInterval(timerInterval);
+  time = 6;
+  document.getElementById("timer").textContent = time;
+
+  const q = quiz[current];
+  document.getElementById("question").textContent = q.q;
+
+  for (let i = 0; i < 4; i++) {
+    const opt = document.getElementById("opt" + i);
+    opt.textContent = q.options[i];
+    opt.className = "option";
   }
 
-  time = 6;
-  timeEl.textContent = time;
-
-  questionEl.textContent = quiz[current].q;
-  optionsEl.forEach((btn, i) => {
-    btn.textContent = quiz[current].options[i];
-    btn.className = "option";
-    btn.disabled = false;
-  });
-
-  timer = setInterval(() => {
+  timerInterval = setInterval(() => {
     time--;
-    timeEl.textContent = time;
+    document.getElementById("timer").textContent = time;
+
     if (time === 0) {
-      clearInterval(timer);
+      clearInterval(timerInterval);
       nextQuestion();
     }
   }, 1000);
 }
 
 function checkAnswer(selected) {
-  clearInterval(timer);
-  optionsEl.forEach(btn => btn.disabled = true);
+  clearInterval(timerInterval);
 
   if (selected === quiz[current].answer) {
-    optionsEl[selected].classList.add("correct");
     score++;
-  } else {
-    optionsEl[selected].classList.add("wrong");
-    optionsEl[quiz[current].answer].classList.add("correct");
   }
 
-  setTimeout(nextQuestion, 1000);
+  setTimeout(nextQuestion, 600);
 }
 
 function nextQuestion() {
   current++;
-  loadQuestion();
-}
+  if (current < quiz.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
 function showResult() {
   document.getElementById("quiz-box").style.display = "none";
   document.getElementById("result-box").style.display = "block";
