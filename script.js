@@ -107,3 +107,122 @@ observer.observe(document.querySelector('.earth-pulse'));
 
 
 
+const quiz = [
+  {
+    q: "What is the main cause of plastic pollution?",
+    options: ["Recycling", "Single-use plastics", "Paper waste", "Glass"],
+    answer: 1
+  },
+  {
+    q: "Which animal is most affected by plastic waste?",
+    options: ["Lions", "Sea animals", "Cows", "Birds"],
+    answer: 1
+  },
+  {
+    q: "How long does plastic take to decompose?",
+    options: ["10 years", "50 years", "100 years", "Hundreds of years"],
+    answer: 3
+  },
+  {
+    q: "What should we use instead of plastic bags?",
+    options: ["Cloth bags", "Plastic bottles", "Paper cups", "Foil"],
+    answer: 0
+  },
+  {
+    q: "Microplastics affect?",
+    options: ["Only oceans", "Only animals", "Human health", "Nothing"],
+    answer: 2
+  },
+  {
+    q: "Which plastic is most dangerous?",
+    options: ["Single-use plastic", "Reusable plastic", "Metal", "Glass"],
+    answer: 0
+  },
+  {
+    q: "Plastic waste mostly ends up in?",
+    options: ["Mountains", "Oceans", "Forests", "Deserts"],
+    answer: 1
+  },
+  {
+    q: "Best way to reduce plastic pollution?",
+    options: ["Burning plastic", "Using more plastic", "Reduce & reuse", "Throwing away"],
+    answer: 2
+  },
+  {
+    q: "Plastic harms environment by?",
+    options: ["Improving soil", "Killing wildlife", "Cleaning water", "Growing trees"],
+    answer: 1
+  },
+  {
+    q: "Plastic-free future means?",
+    options: ["Cleaner planet", "More waste", "More pollution", "No trees"],
+    answer: 0
+  }
+];
+
+let current = 0;
+let score = 0;
+let time = 6;
+let timer;
+
+const questionEl = document.getElementById("question");
+const optionsEl = document.querySelectorAll(".option");
+const timeEl = document.getElementById("time");
+
+function loadQuestion() {
+  if (current >= quiz.length) {
+    showResult();
+    return;
+  }
+
+  time = 6;
+  timeEl.textContent = time;
+
+  questionEl.textContent = quiz[current].q;
+  optionsEl.forEach((btn, i) => {
+    btn.textContent = quiz[current].options[i];
+    btn.className = "option";
+    btn.disabled = false;
+  });
+
+  timer = setInterval(() => {
+    time--;
+    timeEl.textContent = time;
+    if (time === 0) {
+      clearInterval(timer);
+      nextQuestion();
+    }
+  }, 1000);
+}
+
+function checkAnswer(selected) {
+  clearInterval(timer);
+  optionsEl.forEach(btn => btn.disabled = true);
+
+  if (selected === quiz[current].answer) {
+    optionsEl[selected].classList.add("correct");
+    score++;
+  } else {
+    optionsEl[selected].classList.add("wrong");
+    optionsEl[quiz[current].answer].classList.add("correct");
+  }
+
+  setTimeout(nextQuestion, 1000);
+}
+
+function nextQuestion() {
+  current++;
+  loadQuestion();
+}
+function showResult() {
+  document.getElementById("quiz-box").style.display = "none";
+  document.getElementById("result-box").style.display = "block";
+  document.getElementById("score").textContent = score;
+
+  const link = `https://wa.me/?text=I scored ${score}/10 in the Plastic Awareness Quiz 🌍♻️ 
+Join this group to play the quiz: https://chat.whatsapp.com/HRwwzcGv6tAJcR2PHsbpIQ`;
+
+  document.getElementById("whatsappShare").href = link;
+}
+
+loadQuestion();
