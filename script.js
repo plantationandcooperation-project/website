@@ -131,37 +131,36 @@ document.addEventListener("DOMContentLoaded", function () {
       counter.innerText = current;
       localStorage.setItem("treeCountValue", current);
 
-
-
-      document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
   const counter = document.getElementById("treeCount");
   const input = document.getElementById("adminInput");
   const button = document.getElementById("updateBtn");
 
+  // Safety check
   if (!counter || !input || !button) {
-    console.error("Tree counter elements missing");
+    console.error("Tree counter elements not found");
     return;
   }
 
+  // Load saved value
   let current = localStorage.getItem("treeCountValue");
   current = current ? parseInt(current) : 0;
 
   counter.innerText = current;
 
+  // Update on button click
   button.addEventListener("click", function () {
     const value = parseInt(input.value);
 
     if (!isNaN(value)) {
-      current = value;
-      counter.innerText = current;
-      localStorage.setItem("treeCountValue", current);
+      counter.innerText = value;
+      localStorage.setItem("treeCountValue", value);
       input.value = "";
+    } else {
+      alert("Please enter a number");
     }
   });
 
 });
-    }
-  });
 
-});
