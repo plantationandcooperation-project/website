@@ -112,24 +112,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("adminInput");
   const button = document.getElementById("updateBtn");
 
+  console.log(counter, input, button); // debug
+
   let current = localStorage.getItem("treeCountValue");
   current = current ? parseInt(current) : 0;
 
-  counter.innerText = current.toLocaleString();
+  counter.innerText = current;
 
   button.addEventListener("click", function () {
     const value = parseInt(input.value);
 
-    if (!isNaN(value) && value >= 0 && value <= target) {
+    if (!isNaN(value)) {
       current = value;
-      counter.innerText = current.toLocaleString();
+      counter.innerText = current;
       localStorage.setItem("treeCountValue", current);
-      input.value = "";
-    } else {
-      alert("Enter a valid number (0–100000)");
     }
   });
 
-});;
-
-
+});
