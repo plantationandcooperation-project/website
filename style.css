@@ -422,3 +422,49 @@ section {
   min-width: 150px;
 }
 
+
+
+/* Info Section */
+.info-section {
+  background: linear-gradient(135deg, #0f4d1e, #145c2e);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Title */
+.info-title {
+  color: #0a2e15;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+/* Card */
+.info-card {
+  max-width: 700px;
+  margin: auto;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Text */
+.info-card p {
+  color: #0f3d1f;
+  font-size: 16px;
+  line-height: 1.7;
+}
+@media (max-width: 480px) {
+  .info-title {
+    font-size: 22px;
+  }
+
+  .info-card {
+    padding: 22px 18px;
+  }
+
+  .info-card p {
+    font-size: 14px;
+  }
+}
