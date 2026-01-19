@@ -421,7 +421,39 @@ section {
   display: inline-block;
   min-width: 150px;
 }
+/* ============================= */
+/* Info Section (Tree Plantation) */
+/* ============================= */
 
+.info-section {
+  background: linear-gradient(135deg, #4CAF50, #2e7d32);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-card {
+  background: #ffffff;
+  max-width: 900px;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.info-title {
+  color: #1b5e20;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.info-card p {
+  color: #333;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
 
 
 
