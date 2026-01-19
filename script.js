@@ -104,3 +104,33 @@ observer.observe(document.querySelector('.earth-pulse'));
 
 
 
+
+const target = 100000; // 1 lakh
+let current = 0;
+
+const counter = document.getElementById("treeCount");
+
+const speed = 20; // smaller = faster
+
+const updateCounter = () => {
+  const increment = Math.ceil(target / 200);
+
+  if (current < target) {
+    current += increment;
+    counter.innerText = current.toLocaleString();
+    setTimeout(updateCounter, speed);
+  } else {
+    counter.innerText = target.toLocaleString();
+  }
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      updateCounter();
+      observer.disconnect();
+    }
+  });
+});
+
+observer.observe(counter);
