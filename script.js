@@ -1,5 +1,3 @@
-alert("JS Loaded");
-
 const container = document.querySelector(".leaves-container");
 
 if (container) {
@@ -108,59 +106,4 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(document.querySelector('.earth-pulse'));
 
 
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const target = 100000;
-  const counter = document.getElementById("treeCount");
-  const input = document.getElementById("adminInput");
-  const button = document.getElementById("updateBtn");
-
-  console.log(counter, input, button); // debug
-
-  let current = localStorage.getItem("treeCountValue");
-  current = current ? parseInt(current) : 0;
-
-  counter.innerText = current;
-
-  button.addEventListener("click", function () {
-    const value = parseInt(input.value);
-
-    if (!isNaN(value)) {
-      current = value;
-      counter.innerText = current;
-      localStorage.setItem("treeCountValue", current);
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const counter = document.getElementById("treeCount");
-  const input = document.getElementById("adminInput");
-  const button = document.getElementById("updateBtn");
-
-  // Safety check
-  if (!counter || !input || !button) {
-    console.error("Tree counter elements not found");
-    return;
-  }
-
-  // Load saved value
-  let current = localStorage.getItem("treeCountValue");
-  current = current ? parseInt(current) : 0;
-
-  counter.innerText = current;
-
-  // Update on button click
-  button.addEventListener("click", function () {
-    const value = parseInt(input.value);
-
-    if (!isNaN(value)) {
-      counter.innerText = value;
-      localStorage.setItem("treeCountValue", value);
-      input.value = "";
-    } else {
-      alert("Please enter a number");
-    }
-  });
-
-});
 
