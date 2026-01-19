@@ -126,6 +126,37 @@ document.addEventListener("DOMContentLoaded", function () {
       current = value;
       counter.innerText = current;
       localStorage.setItem("treeCountValue", current);
+
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+
+  const counter = document.getElementById("treeCount");
+  const input = document.getElementById("adminInput");
+  const button = document.getElementById("updateBtn");
+
+  if (!counter || !input || !button) {
+    console.error("Tree counter elements missing");
+    return;
+  }
+
+  let current = localStorage.getItem("treeCountValue");
+  current = current ? parseInt(current) : 0;
+
+  counter.innerText = current;
+
+  button.addEventListener("click", function () {
+    const value = parseInt(input.value);
+
+    if (!isNaN(value)) {
+      current = value;
+      counter.innerText = current;
+      localStorage.setItem("treeCountValue", current);
+      input.value = "";
+    }
+  });
+
+});
     }
   });
 
