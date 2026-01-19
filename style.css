@@ -468,3 +468,53 @@ section {
     font-size: 14px;
   }
 }
+
+
+.counter-section {
+  background: linear-gradient(135deg, #7be495, #4caf50);
+  padding: 80px 20px;
+  text-align: center;
+  color: #1b5e20;
+}
+
+.counter-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.counter-sub {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.counter-box {
+  background: #ffffff;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+#treeCount {
+  font-size: 52px;
+  font-weight: 900;
+  color: #2e7d32;
+}
+
+.counter-label {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+@media (max-width: 480px) {
+  #treeCount {
+    font-size: 40px;
+  }
+
+  .counter-box {
+    padding: 28px 35px;
+  }
+}
