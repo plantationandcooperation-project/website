@@ -284,7 +284,7 @@ section {
   border: 2px dashed rgba(255,255,255,0.5);
   border-radius: 50%;
   animation: rotateCircle 40s linear infinite;
-  
+  will-change: transfrom;
 }
 
 /* Center text */
