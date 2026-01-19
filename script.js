@@ -104,26 +104,19 @@ observer.observe(document.querySelector('.earth-pulse'));
 
 
 
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   const target = 100000;
   const counter = document.getElementById("treeCount");
   const input = document.getElementById("adminInput");
+  const button = document.getElementById("updateBtn");
 
-  // load saved value
   let current = localStorage.getItem("treeCountValue");
-
-  if (current !== null) {
-    current = parseInt(current);
-  } else {
-    current = 0;
-  }
+  current = current ? parseInt(current) : 0;
 
   counter.innerText = current.toLocaleString();
 
-  // update function
-  window.updateCount = function () {
+  button.addEventListener("click", function () {
     const value = parseInt(input.value);
 
     if (!isNaN(value) && value >= 0 && value <= target) {
@@ -132,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("treeCountValue", current);
       input.value = "";
     } else {
-      alert("Please enter a valid number (0–100000)");
+      alert("Enter a valid number (0–100000)");
     }
-  };
+  });
 
-});
+});;
 
 
