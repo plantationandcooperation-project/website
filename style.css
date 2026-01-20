@@ -261,7 +261,7 @@ section {
 }
 .team-card img {
   width: 100%;
-  height: 250px;        /* fixed height */
+  height: auto;        /* fixed height */
   object-fit: cover;   /* crop করবে, stretch না */
   border-radius: 15px;
 }
