@@ -1,4 +1,4 @@
-const container = document.querySelector(".leaves-container");
+const container = document.querySelector(".leaves");
 
 if (container) {
   function createLeaf() {
