@@ -1,3 +1,4 @@
+/* ===== FALLING LEAVES ===== */
 .leaves-container {
   position: fixed;
   top: 0;
@@ -11,9 +12,9 @@
 
 .leaf {
   position: absolute;
-  top: -40px;
-  font-size: 22px;
-  animation: fall linear;
+  top: -50px;
+  font-size: 24px;
+  animation: fall linear forwards;
 }
 
 @keyframes fall {
