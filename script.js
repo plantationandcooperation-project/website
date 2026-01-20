@@ -159,29 +159,35 @@ const quiz = [
     answer: 2
   }
 ];
-
+// ===== VARIABLES =====
 let current = 0;
 let score = 0;
 let time = 6;
 let timerInterval;
 
+// ===== ELEMENTS =====
+const questionEl = document.getElementById("question");
+const timerEl = document.getElementById("timer");
+
+// ===== LOAD QUESTION =====
 function loadQuestion() {
   clearInterval(timerInterval);
   time = 6;
-  document.getElementById("timer").textContent = time;
+  timerEl.textContent = time;
 
   const q = quiz[current];
-  document.getElementById("question").textContent = q.q;
+  questionEl.textContent = q.q;
 
   for (let i = 0; i < 4; i++) {
     const opt = document.getElementById("opt" + i);
     opt.textContent = q.options[i];
-    opt.className = "option";
+    opt.style.background = "";
+    opt.style.pointerEvents = "auto";
   }
 
   timerInterval = setInterval(() => {
     time--;
-    document.getElementById("timer").textContent = time;
+    timerEl.textContent = time;
 
     if (time === 0) {
       clearInterval(timerInterval);
@@ -190,32 +196,43 @@ function loadQuestion() {
   }, 1000);
 }
 
-function checkAnswer(selected) {
+// ===== CHECK ANSWER =====
+function checkAnswer(index) {
   clearInterval(timerInterval);
 
-  if (selected === quiz[current].answer) {
+  const correct = quiz[current].answer;
+
+  if (index === correct) {
     score++;
+    document.getElementById("opt" + index).style.background = "green";
+  } else {
+    document.getElementById("opt" + index).style.background = "red";
+    document.getElementById("opt" + correct).style.background = "green";
   }
 
-  setTimeout(nextQuestion, 600);
+  for (let i = 0; i < 4; i++) {
+    document.getElementById("opt" + i).style.pointerEvents = "none";
+  }
+
+  setTimeout(nextQuestion, 800);
 }
 
+// ===== NEXT QUESTION =====
 function nextQuestion() {
   current++;
+
   if (current < quiz.length) {
     loadQuestion();
   } else {
-    showResult();
+    document.getElementById("quiz-box").style.display = "none";
+    document.getElementById("result-box").style.display = "block";
+    document.getElementById("score").textContent = score;
+
+    const wp = document.getElementById("whatsappShare");
+    wp.href =
+      "https://chat.whatsapp.com/HRwwzcGv6tAJcR2PHsbpIQ";
   }
-function showResult() {
-  document.getElementById("quiz-box").style.display = "none";
-  document.getElementById("result-box").style.display = "block";
-  document.getElementById("score").textContent = score;
-
-  const link = `https://wa.me/?text=I scored ${score}/10 in the Plastic Awareness Quiz 🌍♻️ 
-Join this group to play the quiz: https://chat.whatsapp.com/HRwwzcGv6tAJcR2PHsbpIQ`;
-
-  document.getElementById("whatsappShare").href = link;
 }
 
-loadQuestion();
+// ===== AUTO START QUIZ =====
+document.addEventListener("DOMContentLoaded", loadQuestion);
