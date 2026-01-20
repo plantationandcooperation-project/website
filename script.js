@@ -1,5 +1,4 @@
-console.log("QUIZ JS LOADED");
-console.log("Leaf JS Loaded 🌿");
+console.log("JS OK");
 
 const container = document.querySelector(".leaves-container");
 
@@ -160,38 +159,29 @@ const quiz = [
     answer: 2
   }
 ];
-// ===== VARIABLES =====
 let current = 0;
 let score = 0;
 let time = 6;
 let timerInterval;
 
-// ===== ELEMENTS =====
-const questionEl = document.getElementById("question");
-const timerEl = document.getElementById("timer");
-
 // ===== LOAD QUESTION =====
 function loadQuestion() {
   clearInterval(timerInterval);
   time = 6;
-  timerEl.textContent = time;
+  document.getElementById("timer").innerText = time;
 
   const q = quiz[current];
-  questionEl.textContent = q.q;
+  document.getElementById("question").innerText = q.q;
 
   for (let i = 0; i < 4; i++) {
-    const opt = document.getElementById("opt" + i);
-    opt.textContent = q.options[i];
-    opt.style.background = "";
-    opt.style.pointerEvents = "auto";
+    document.getElementById("opt" + i).innerText = q.options[i];
   }
 
   timerInterval = setInterval(() => {
     time--;
-    timerEl.textContent = time;
+    document.getElementById("timer").innerText = time;
 
     if (time === 0) {
-      clearInterval(timerInterval);
       nextQuestion();
     }
   }, 1000);
@@ -199,41 +189,30 @@ function loadQuestion() {
 
 // ===== CHECK ANSWER =====
 function checkAnswer(index) {
-  clearInterval(timerInterval);
-
-  const correct = quiz[current].answer;
-
-  if (index === correct) {
+  if (index === quiz[current].answer) {
     score++;
-    document.getElementById("opt" + index).style.background = "green";
-  } else {
-    document.getElementById("opt" + index).style.background = "red";
-    document.getElementById("opt" + correct).style.background = "green";
   }
-
-  for (let i = 0; i < 4; i++) {
-    document.getElementById("opt" + i).style.pointerEvents = "none";
-  }
-
-  setTimeout(nextQuestion, 800);
+  nextQuestion();
 }
 
 // ===== NEXT QUESTION =====
 function nextQuestion() {
+  clearInterval(timerInterval);
   current++;
 
   if (current < quiz.length) {
     loadQuestion();
   } else {
-    document.getElementById("quiz-box").style.display = "none";
-    document.getElementById("result-box").style.display = "block";
-    document.getElementById("score").textContent = score;
-
-    const wp = document.getElementById("whatsappShare");
-    wp.href =
-      "https://chat.whatsapp.com/HRwwzcGv6tAJcR2PHsbpIQ";
+    showResult();
   }
 }
 
-// ===== AUTO START QUIZ =====
-document.addEventListener("DOMContentLoaded", loadQuestion);
+// ===== SHOW RESULT =====
+function showResult() {
+  document.getElementById("quiz-box").style.display = "none";
+  document.getElementById("result-box").style.display = "block";
+  document.getElementById("score").innerText = score;
+}
+
+// ===== START QUIZ =====
+window.onload = loadQuestion;
