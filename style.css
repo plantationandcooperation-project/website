@@ -689,32 +689,47 @@ section {
 .instagram h3 { color: #e1306c; }
 .facebook h3 { color: #1877f2; }
 
+
 .site-footer {
   background: #0f3d1f;
-  color: #ffffff;
+  padding: 40px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-box {
+  background: #145c2e;
+  border-radius: 14px;
+  padding: 25px 30px;
+  max-width: 520px;
+  width: 100%;
   text-align: center;
-  padding: 35px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-.footer-contact p {
-  margin: 6px 0;
+.footer-box p {
+  margin: 10px 0;
+  color: #e6ffee;
   font-size: 15px;
-  color: #d9f5df;
 }
 
-/* Footer links (Email + WhatsApp) */
-.site-footer a {
+.footer-box a {
   color: #9cffb3;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.site-footer a:hover {
+.footer-box a:hover {
   text-decoration: underline;
 }
 
 .footer-copy {
   margin-top: 18px;
   font-size: 14px;
+  color: #c8f7d4;
+}
+
+.footer-copy span {
+  font-size: 13px;
   color: #b7e4c7;
 }
