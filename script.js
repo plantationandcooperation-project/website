@@ -1,3 +1,4 @@
+alert("JS LOADED");
 const container = document.querySelector(".leaves-container");
 
 function createLeaf() {
