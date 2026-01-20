@@ -260,7 +260,17 @@ section {
   font-size: 0.95rem;
   line-height: 1.5;
 }
-
+.team-card img {
+  width: 100%;
+  height: 250px;        /* fixed height */
+  object-fit: cover;   /* crop করবে, stretch না */
+  border-radius: 15px;
+}
+@media (max-width: 768px) {
+  .team-card img {
+    height: 200px;
+  }
+}
 
 /* ===== Plastic Journey Circle ===== */
 .plastic-journey-section {
@@ -591,3 +601,5 @@ section {
   color: red;
   font-weight: bold;
 }
+
+
