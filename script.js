@@ -1,3 +1,4 @@
+console.log("QUIZ JS LOADED");
 console.log("Leaf JS Loaded 🌿");
 
 const container = document.querySelector(".leaves-container");
