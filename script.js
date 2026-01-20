@@ -159,12 +159,12 @@ const quiz = [
     answer: 2
   }
 ];
+
 let current = 0;
 let score = 0;
 let time = 6;
 let timerInterval;
 
-// ===== LOAD QUESTION =====
 function loadQuestion() {
   clearInterval(timerInterval);
   time = 6;
@@ -173,33 +173,25 @@ function loadQuestion() {
   const q = quiz[current];
   document.getElementById("question").innerText = q.q;
 
-  for (let i = 0; i < 4; i++) {
-    document.getElementById("opt" + i).innerText = q.options[i];
-  }
+  q.options.forEach((opt, i) => {
+    document.getElementById("opt" + i).innerText = opt;
+  });
 
   timerInterval = setInterval(() => {
     time--;
     document.getElementById("timer").innerText = time;
-
-    if (time === 0) {
-      nextQuestion();
-    }
+    if (time === 0) nextQuestion();
   }, 1000);
 }
 
-// ===== CHECK ANSWER =====
-function checkAnswer(index) {
-  if (index === quiz[current].answer) {
-    score++;
-  }
+function checkAnswer(i) {
+  if (i === quiz[current].answer) score++;
   nextQuestion();
 }
 
-// ===== NEXT QUESTION =====
 function nextQuestion() {
   clearInterval(timerInterval);
   current++;
-
   if (current < quiz.length) {
     loadQuestion();
   } else {
@@ -207,12 +199,13 @@ function nextQuestion() {
   }
 }
 
-// ===== SHOW RESULT =====
 function showResult() {
   document.getElementById("quiz-box").style.display = "none";
   document.getElementById("result-box").style.display = "block";
   document.getElementById("score").innerText = score;
 }
 
-// ===== START QUIZ =====
-window.onload = loadQuestion;
+/* 🚀 IMPORTANT */
+window.onload = () => {
+  loadQuestion();
+};
