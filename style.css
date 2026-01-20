@@ -688,3 +688,33 @@ section {
 .youtube h3 { color: #e53935; }
 .instagram h3 { color: #e1306c; }
 .facebook h3 { color: #1877f2; }
+
+.site-footer {
+  background: #0f3d1f;
+  color: #ffffff;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.footer-contact p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #d9f5df;
+}
+
+/* Footer links (Email + WhatsApp) */
+.site-footer a {
+  color: #9cffb3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #b7e4c7;
+}
