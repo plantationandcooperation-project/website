@@ -259,18 +259,14 @@ section {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
 .team-card img {
   width: 100%;
-  height: auto;        /* fixed height */
-  object-fit: cover;   /* crop করবে, stretch না */
+  height: auto;          /* ✅ must */
+  object-fit: contain;  /* ✅ no crop */
   border-radius: 15px;
+  display: block;
 }
-@media (max-width: 768px) {
-  .team-card img {
-    height: 200px;
-  }
-}
-
 /* ===== Plastic Journey Circle ===== */
 .plastic-journey-section {
   background: #0f4d1e;
@@ -734,11 +730,5 @@ section {
 }
 
 
-.team-card img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  display: block;
-}
+
 
