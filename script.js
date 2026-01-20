@@ -1,14 +1,15 @@
-alert("JS LOADED");
+console.log("Leaf JS Loaded 🌿");
+
 const container = document.querySelector(".leaves-container");
 
 function createLeaf() {
   const leaf = document.createElement("div");
   leaf.className = "leaf";
-  leaf.innerHTML = "🍃";
+  leaf.innerText = "🍃";
 
   leaf.style.left = Math.random() * 100 + "vw";
   leaf.style.animationDuration = 5 + Math.random() * 5 + "s";
-  leaf.style.fontSize = 16 + Math.random() * 20 + "px";
+  leaf.style.fontSize = 16 + Math.random() * 24 + "px";
 
   container.appendChild(leaf);
 
@@ -17,6 +18,7 @@ function createLeaf() {
   }, 10000);
 }
 
+setInterval(createLeaf, 400);
 setInterval(createLeaf, 400);
 
 let pledgeBtn = document.getElementById("pledgeBtn");
