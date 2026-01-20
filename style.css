@@ -603,3 +603,25 @@ section {
 }
 
 
+.join-section {
+  background-color: #0f6b2f;
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.join-section h2 {
+  color: #ffffff;
+}
+
+.join-section p {
+  color: #e9f5ec;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 30px auto 0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
