@@ -736,26 +736,3 @@ section {
 
 
 
-.quiz-container {
-    width: 100%;
-    max-width: 850px;
-    background: rgba(255, 255, 255, 0.97);
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    color: #333;
-    margin: 0 auto;
-}
-
-.quiz-section {
-    display: none;
-    padding: 40px;
-    flex-direction: column;
-    min-height: 650px;
-}
-
-.quiz-section.active {
-    display: flex;
-}
-
-/* বাকি CSS আগের মতোই */
